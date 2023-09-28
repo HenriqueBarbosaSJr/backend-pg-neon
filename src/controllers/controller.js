@@ -5,14 +5,46 @@ module.exports={
     async raiz(req, res){
         const result = await console.log('Servidor requisitado');
 
-        return res.send('It works!');
+        const html = `
+                        <!DOCTYPE html>
+                        <html lang="en">
+                        <head>
+                            <meta charset="UTF-8">
+                            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                            <title>Rortas da API</title>
+                        </head>
+                        <body>
+                            <h1>Servidor backend hospedado no Reder.com</h1>
+                        
+                            <h3>Configurações:</h3>
+                            <p>baseURL : 'https://backend-pg-neon.onrender.com'</p>
+                            
+                            <h3>Rotas:</h3>
+                            <p>Requisição GET - <strong>Consulta</strong> de produtos -   /produtos</p>
+                            <p>Requisição POST - <strong>Cadastro</strong> de produtos -   /produtos</p>
+                            <p>Requisição PUT - <strong>Alteração</strong> de produtos -   /produtos/:cod</p>
+                            <p>Requisição DELETE - <strong>Exclusão</strong> de produtos -   /produtos/:cod</p> 
+                            <br>
+                            <br>
+                            <h2> <img src="https://img.icons8.com/3d-fluency/94/server.png" alt="">
+                                Servidor em funcionamento</h2>
+                        
+                        </body>
+                        </html>
+                    `
+
+        return res.send(html);
     },
     
     async prod(req, res){
         try{
 
             const result = await knex('produtos');
-            return res.json(result);        
+            const QtdaRegistros = result.length;
+
+            return res.json({
+                            'Quantidade de Registros':QtdaRegistros,
+                             result});        
 
         }catch(error){
             return res.status(400).json({error: error.message});
