@@ -26,6 +26,7 @@ module.exports={
                             <p>Requisição DELETE - <strong>Exclusão</strong> de produtos -   /produtos/:cod</p> 
                             <br>
                             <br>
+                            <br>
                             <h2> <img src="https://img.icons8.com/3d-fluency/94/server.png" alt="">
                                 Servidor em funcionamento</h2>
                         
