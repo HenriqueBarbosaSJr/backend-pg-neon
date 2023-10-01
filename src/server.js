@@ -8,5 +8,5 @@ app.use(express.json());
 app.use(routes);
 
 app.listen( process.env.PORT ?? 3334,
-    ()=> console.log('Servidor ON na porta 3334')
+    ()=> process.env.PORT? console.log(process.env.PORT) :  console.log('Servidor ON na porta 3334')
 );
