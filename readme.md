@@ -15,7 +15,7 @@ Projeto de API utilizando NodeJs e Banco de Dados PostgreSQL utilizando uma Quer
   
   ### Languages
 
-* Javascript
+ * Javascript
  * NodeJS
  * SQL
 

@@ -41,10 +41,10 @@ module.exports={
         try{
 
             const result = await knex('produtos');
-            const QtdaRegistros = result.length;
+            const qtdaRegistros = result.length;
 
             return res.json({
-                            'Quantidade de Registros':QtdaRegistros,
+                            'Quantidade de Registros ':qtdaRegistros,
                              result});        
 
         }catch(error){
