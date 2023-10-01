@@ -1,12 +1,16 @@
 const express = require('express');
 const controllerProds = require('./controllers/controllerProds');
 const controllerClient = require('./controllers/controllerClient');
+const controllerRaiz = require('./controllers/controllerRaiz')
 
 const routes = express.Router();
 
 
+/// Rota para a raiz do servidor ///
+routes.get('/', controllerRaiz.raiz );
+
+
 /// Rotas da tabela produtos ///
-routes.get('/', controllerProds.raiz );
 routes.get('/produtos', controllerProds.prod);
 routes.get('/produtos/:nome', controllerProds.searchName);
 routes.post('/produtos', controllerProds.createProd);
