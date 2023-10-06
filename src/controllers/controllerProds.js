@@ -3,7 +3,7 @@ const knex =  require('../database/index');
 module.exports={
 
     
-    async prod(req, res){
+    async prods(req, res){
         try{
 
             const result = await knex('produtos');

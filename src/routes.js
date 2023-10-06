@@ -11,7 +11,7 @@ routes.get('/', controllerRaiz.raiz );
 
 
 /// Rotas da tabela produtos ///
-routes.get('/produtos', controllerProds.prod);
+routes.get('/produtos', controllerProds.prods);
 routes.get('/produtos/:nome', controllerProds.searchName);
 routes.post('/produtos', controllerProds.createProd);
 routes.put('/produtos/:cod', controllerProds.updateProd);
