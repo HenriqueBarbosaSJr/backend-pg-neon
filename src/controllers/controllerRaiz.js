@@ -37,6 +37,10 @@ module.exports = {
                             <h3>Tabeblas</h3>
                             <table>
                                 <tr>
+                                    <td colspan="2" > <center>Produtos</center></td>
+                                    
+                                </tr>
+                                <tr>
                                     <td>Atributo</td>
                                     <td>tipo</td>
                                 </tr>
