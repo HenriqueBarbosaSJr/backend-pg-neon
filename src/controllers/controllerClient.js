@@ -8,11 +8,11 @@ module.exports = {
     async listClientes(req, res){
         try {
             
-            const result = await knex('clientes');
+            const result = await knex('clientes').orderBy('codcli', 'asc');
             const qtdaRegistros = result.length;
 
             return res.json({
-                            'Quantidade de Registros ':qtdaRegistros,
+                            'Quantidade de Registros':qtdaRegistros,
                             result});
 
         } catch (error) {

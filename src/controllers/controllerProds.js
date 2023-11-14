@@ -6,7 +6,7 @@ module.exports={
     async prod(req, res){
         try{
 
-            const result = await knex('produtos');
+            const result = await knex('produtos').orderBy('cod', 'asc');
             const qtdaRegistros = result.length;
 
             return res.json({
