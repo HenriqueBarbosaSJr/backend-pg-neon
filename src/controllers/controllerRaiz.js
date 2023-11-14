@@ -85,7 +85,10 @@ module.exports = {
                             <h3>Rotas para a tabela clientes:</h3>
                             <p>Requisição GET - <strong>Consulta todos os clientes</strong> -   /listclient</p>
                             <p>Requisição GET - <strong>Consulta por nome dos clientes</strong>  -   /listclient/:nome</p>
-                        
+                            <p>Requisição POST - <strong>Cadastro de clientes</strong> -    /createclient</p>
+                            <p>Requisição PUT - <strong>Alteração de clientes</strong>  -   /client/:codcli</p>
+                            <p>Requisição DELETE - <strong>Exclusão de clientes</strong> -  /client/:codcli</p>
+                            
                         
                             <br>
                             <h2> <img src="https://img.icons8.com/3d-fluency/94/server.png" alt="">
