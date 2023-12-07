@@ -21,9 +21,13 @@ module.exports={
     async searchName(req, res){
         try {
             const { nome } = req.params;
-            const results = await knex('produtos')
-               .where('nome', 'like', '%' + nome + '%');
-            return res.json(results);
+            const result = await knex('produtos')
+               .where('nome', 'like', '%' + nome + '%').orderBy('cod', 'asc');
+            const qtdaRegistros = result.length;
+
+            return res.json({
+                            'Quantidade de Registros ':qtdaRegistros,
+                            result});
         } catch (error) {
             return res.status(400).json({error: error.message});
         }
