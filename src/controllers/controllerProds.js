@@ -6,7 +6,7 @@ module.exports={
     async prod(req, res){
         try{
 
-            const result = await knex('produtos').orderBy('cod', 'asc');
+            const result = await knex('produtos').orderBy('codpro', 'asc');
             const qtdaRegistros = result.length;
 
             return res.json({
@@ -22,7 +22,7 @@ module.exports={
         try {
             const { nome } = req.params;
             const result = await knex('produtos')
-               .where('nome', 'like', '%' + nome + '%').orderBy('cod', 'asc');
+               .where('nome', 'like', '%' + nome + '%').orderBy('codpro', 'asc');
             const qtdaRegistros = result.length;
 
             return res.json({
