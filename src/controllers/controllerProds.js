@@ -82,9 +82,9 @@ module.exports={
 
     async deleteProd(req, res){
         try {
-            const { cod } = req.params;
+            const { codpro } = req.params;
             await knex('produtos')
-            .where({ cod })
+            .where({ codpro })
             .del();
             return res.status(201).send({msg : 'Registro deletado!'});
         } catch (error) {
