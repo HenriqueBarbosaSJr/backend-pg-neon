@@ -86,7 +86,7 @@ module.exports={
             await knex('produtos')
             .where({ codpro })
             .del();
-            return res.status(201).send({msg : 'Registro deletado!'});
+            return res.status(200).send({msg : 'Registro deletado!'});
         } catch (error) {
             return res.status(400).json({error: error.message});
         }
