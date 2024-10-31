@@ -1,5 +1,6 @@
 const knex = require('../database');
 const bcrypt = require('bcrypt');
+const jwt = require('jsonwebtoken');
 
 
 module.exports = {
@@ -102,6 +103,45 @@ module.exports = {
             return res.status(400).json({error: error.message});
         }
         
+    },
+
+    async searchUsers(req, res){
+        try {
+            const { email } = req.body;
+            const   [ result ]  = await knex ('clientes').where( { email } );
+            console.log(result);
+            if (result != undefined){
+                bcrypt.compare(req.body.password, result.password,(err, respok)=>{
+                    if (err){     
+                              /* As mensagens de retorno precisam ser genéricas sem indicar o tipo de erro, 
+                                 para não comprometer a segurança */
+
+                        return res.status(401).send({mensagem: 'Falha na autenticação - error interno bcrypt'});
+                    }
+                    if (respok){
+                        const token = jwt.sign({
+                            idUser:result.id,
+                            nome:result.nome,
+                            email:result.email,
+                            level:result.level
+                        },'segredo',
+                        {
+                            expiresIn:'1h'
+                        }
+                        );
+                        return res.status(200).send({
+                            token:token,
+                            mensagem: 'Autenticação com sucesso'});
+                    }
+                    return res.status(401).send({mensagem: 'Falha na autenticação - error password'});
+                });
+            }else{
+                console.log({result});
+                return res.status(401).send({mensagem: 'Falha na autenticação - email'});
+            }
+        } catch (error) {
+          console.log(error);
+        }
     }
             
 

@@ -24,4 +24,6 @@ routes.post('/createclient', controllerClient.createClient);
 routes.put('/client/:codcli', controllerClient.updateClient);
 routes.delete('/client/:codcli', controllerClient.deleteClient);
 
+routes.post('/userauth', controllerClient.searchUsers);
+
 module.exports = routes;
