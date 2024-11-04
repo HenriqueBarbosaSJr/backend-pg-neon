@@ -1,7 +1,8 @@
 const express = require('express');
 const controllerProds = require('./controllers/controllerProds');
 const controllerClient = require('./controllers/controllerClient');
-const controllerRaiz = require('./controllers/controllerRaiz')
+const controllerFunc = require('./controllers/controllerFunc');
+const controllerRaiz = require('./controllers/controllerRaiz');
 
 const routes = express.Router();
 
@@ -26,4 +27,7 @@ routes.delete('/client/:codcli', controllerClient.deleteClient);
 
 routes.post('/userauth', controllerClient.searchUsers);
 
+/// Rotas da tabela funcionarios
+routes.get('/listfunc', controllerFunc.listFunc);
+routes.post('/createfunc', controllerFunc.createFunc);
 module.exports = routes;
