@@ -23,7 +23,7 @@ module.exports = {
     },
 
     async createFunc(req, res) {
-      //  try{
+        try{
             const { nome } = req.body;
             const { departamento } = req.body;
             const { funcao } = req.body;
@@ -38,10 +38,21 @@ module.exports = {
             
             await knex('funcionarios').insert(data);
             return res.status(201).send();
-       // }catch(error){
-       //     return res.status(400).json({error: error.message});
-       // };
+        }catch(error){
+            return res.status(400).json({error: error.message});
+        };
     },
-
+    async deleteFunc(req, res){
+        try {
+            const { id } = req.params;
+            await knex('funcionarios')
+            .where({ id })
+            .del();
+            return res.status(200).send({msg : 'Registro deletado!'});
+        } catch (error) {
+            return res.status(400).json({error: error.message});
+        }
+        
+    }
 
 }
