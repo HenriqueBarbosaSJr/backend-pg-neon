@@ -53,6 +53,29 @@ module.exports = {
             return res.status(400).json({error: error.message});
         }
         
-    }
+    },
+
+    async updateFunc(req, res){
+        try{
+           const { id } = req.params;
+           const { nome } = req.body;
+           const { departamento } = req.body;
+           const { funcao } = req.body;
+           const { salario } = req.body;
+           await knex('funcionarios').update({
+               nome,
+               departamento,
+               funcao, 
+               salario
+           }).where({ id });
+           return res.status(201).send(
+               {
+                   msg:'Atualização efetuada com sucesso !!!!'
+               }
+           );
+       }catch(error){
+           return res.status(400).json({error: error.message});
+       };
+   },
 
 }

@@ -31,4 +31,5 @@ routes.post('/userauth', controllerClient.searchUsers);
 routes.get('/listfunc', controllerFunc.listFunc);
 routes.post('/createfunc', controllerFunc.createFunc);
 routes.delete('/func/:id', controllerFunc.deleteFunc);
+routes.put('/func/:id', controllerFunc.updateFunc);
 module.exports = routes;
