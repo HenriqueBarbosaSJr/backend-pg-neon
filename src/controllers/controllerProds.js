@@ -59,7 +59,7 @@ module.exports={
 
     async updateProd(req, res){
         try{
-            const { cod } = req.params;
+            const { codpro } = req.params;
             const { nome } = req.body;
             const { descri } = req.body;
             const { qtda } = req.body;
@@ -73,7 +73,7 @@ module.exports={
                 fabricante,
                 preco,
                 custo
-            }).where({ cod });
+            }).where({ inputCod });
             return res.status(201).send();
         }catch(error){
             return res.status(400).json({error: error.message});
