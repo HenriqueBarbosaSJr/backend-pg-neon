@@ -58,6 +58,7 @@ module.exports={
     },
 
     async updateProd(req, res){
+        
         try{
             const { codpro } = req.params;
             const { nome } = req.body;
