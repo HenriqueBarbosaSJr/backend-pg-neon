@@ -58,8 +58,7 @@ module.exports={
     },
 
     async updateProd(req, res){
-        
-        try{
+         try{
             const { codpro } = req.params;
             const {nome}  = req.body;
             const { descri }  = req.body;
@@ -67,7 +66,6 @@ module.exports={
             const { qtda }  = req.body;
             const { preco }  = req.body;
             const { custo }  = req.body;
-            
             await knex('produtos').update({
                 nome,
                 descri,
