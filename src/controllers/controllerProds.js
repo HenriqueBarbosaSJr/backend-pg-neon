@@ -61,21 +61,26 @@ module.exports={
         
         try{
             const { codpro } = req.params;
-            const { nome } = req.body;
-            const { descri } = req.body;
-            const { qtda } = req.body;
-            const { fabricante } = req.body;
-            const { custo } = req.body;
-            const { preco} = req.body;
+            const {nome}  = req.body;
+            const { descri }  = req.body;
+            const { fabricante }  = req.body;
+            const { qtda }  = req.body;
+            const { preco }  = req.body;
+            const { custo }  = req.body;
+            
             await knex('produtos').update({
                 nome,
                 descri,
+                fabricante, 
                 qtda,
-                fabricante,
                 preco,
                 custo
             }).where({ codpro });
-            return res.status(201).send();
+            return res.status(201).send(
+                {
+                    msg:'Atualização efetuada com sucesso !!!!'
+                }
+            );
         }catch(error){
             return res.status(400).json({error: error.message});
         };
