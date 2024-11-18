@@ -30,5 +30,4 @@ routes.post('/userauth', controllerClient.searchUsers);
 /// Rotas da tabela funcionarios
 routes.get('/listfunc', controllerFunc.listFunc);
 routes.post('/createfunc', controllerFunc.createFunc);
-routes.delete('/func/:id', controllerFunc.deleteFunc);
 module.exports = routes;
